@@ -17,11 +17,23 @@ const getSingleProductFromDB = async (_id: string) => {
     return result;
 };
 
+const updateProductFromDB = async (_id: string) => {
+    const result = await phoneProductModel.updateOne({_id});
+    return result;
+};
+
+const deletedProductFromDB = async (_id: string) => {
+    const result = await phoneProductModel.deleteOne({_id});
+    return result;
+};
+
 
 export const productServices = {
     createProductIntoDB,
     getAllProductFromDB,
-    getSingleProductFromDB
+    getSingleProductFromDB,
+    updateProductFromDB,
+    deletedProductFromDB
 
 }
 
