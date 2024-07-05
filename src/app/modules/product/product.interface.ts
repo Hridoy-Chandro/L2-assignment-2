@@ -197,7 +197,7 @@ export type coffeeProduct = {
       };
   };
 
-const Product = model<>
+
 
 
 

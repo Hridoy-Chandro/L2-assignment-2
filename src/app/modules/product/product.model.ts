@@ -1,5 +1,5 @@
-import { Schema, model, connect } from 'mongoose';
-import { coffeeProduct, gamingProduct, headphoneProduct, kettleProduct, phoneProduct, shoeProduct, speakerProduct, warlessProduct, watchProduct, yogaProduct } from './product/product.interface';
+import { Schema, model } from 'mongoose';
+import { coffeeProduct, gamingProduct, headphoneProduct, kettleProduct, phoneProduct, shoeProduct, speakerProduct, warlessProduct, watchProduct, yogaProduct } from './product.interface';
 
 
 const phoneProductSchema = new Schema<phoneProduct>({
@@ -19,16 +19,10 @@ const phoneProductSchema = new Schema<phoneProduct>({
       type: String,
       required: true,
     },
-    variants: [
-      {
-        type: String,
-        required: true,
-      },
-    ],
-    inventory: {
-      type: String,
-      required: true,
-    },
+    inventory:{
+      quantity: {type: Number, required: true},
+      inStock: {type: Boolean, required: true}
+    }
   });
   
 
@@ -56,10 +50,10 @@ const warlessProductSchema = new Schema<warlessProduct>({
       required: true,
     },
   ],
-  inventory: {
-    type: String,
-    required: true,
-  },
+  inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
 });
 
 
@@ -86,10 +80,10 @@ const speakerProductSchema = new Schema<speakerProduct>({
       required: true,
     },
   ],
-  inventory: {
-    type: String,
-    required: true,
-  },
+  inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
 });
 
 
@@ -116,10 +110,10 @@ const yogaProductSchema = new Schema<yogaProduct>({
       required: true,
     },
   ],
-  inventory: {
-    type: String,
-    required: true,
-  },
+  inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
 });
 
 
@@ -146,10 +140,10 @@ const shoeProductSchema = new Schema<shoeProduct>({
         required: true,
       },
     ],
-    inventory: {
-      type: String,
-      required: true,
-    },
+   inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
   });
 const kettleProductSchema = new Schema<kettleProduct>({
     name: {
@@ -174,10 +168,10 @@ const kettleProductSchema = new Schema<kettleProduct>({
         required: true,
       },
     ],
-    inventory: {
-      type: String,
-      required: true,
-    },
+   inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
   });
 const gamingProductSchema = new Schema<gamingProduct>({
     name: {
@@ -202,10 +196,10 @@ const gamingProductSchema = new Schema<gamingProduct>({
         required: true,
       },
     ],
-    inventory: {
-      type: String,
-      required: true,
-    },
+   inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
   });
 const watchProductSchema = new Schema<watchProduct>({
     name: {
@@ -230,10 +224,10 @@ const watchProductSchema = new Schema<watchProduct>({
         required: true,
       },
     ],
-    inventory: {
-      type: String,
-      required: true,
-    },
+   inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
   });
 const headphoneProductSchema = new Schema<headphoneProduct>({
     name: {
@@ -258,10 +252,10 @@ const headphoneProductSchema = new Schema<headphoneProduct>({
         required: true,
       },
     ],
-    inventory: {
-      type: String,
-      required: true,
-    },
+   inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
   });
 
 const coffeeProductSchema = new Schema<coffeeProduct>({
@@ -287,14 +281,13 @@ const coffeeProductSchema = new Schema<coffeeProduct>({
         required: true,
       },
     ],
-    inventory: {
-      type: String,
-      required: true,
-    },
+   inventory:{
+    quantity: {type: Number, required: true},
+    inStock: {type: Boolean, required: true}
+  }
   });
 
 
 
-
-const phoneProduct = model<phoneProduct>('phoneProduct', phoneProductSchema)
+export const phoneProductModel = model<phoneProduct>('product', phoneProductSchema)
 
